@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -69,11 +70,12 @@ public class MainActivity extends AppCompatActivity {
        // });
 
     }
-    public void launchMountainDetailsActivity(View view, String mountainInfo) {
+    public void launchMountainDetailsActivity(View view, String mountainInfo, String image) {
 
 
         Intent intent = new Intent(this, MountainDetailsActivity.class);
         intent.putExtra("MOUNTAININFO", mountainInfo);
+        intent.putExtra("IMGURL", image);
         startActivity(intent);
     }
 
@@ -157,12 +159,19 @@ public class MainActivity extends AppCompatActivity {
 
 
                 final List<Mountain> mountains = new ArrayList<Mountain>();
-
+                ImageView imageView;
+                imageView = (ImageView)findViewById(R.id.imageView);
                 for (int i = 0; i<mtns.length(); i++){
                     Log.e("berra", String.valueOf(i));
                     JSONObject mtn = new JSONObject(mtns.getString(i));
-                    mountains.add(new Mountain(mtn.getString("name"), mtn.getString("location"), mtn.getInt("size")));
+                    JSONObject mtnaux = new JSONObject(mtn.getString("auxdata"));
+                    String mtnimg = new String(mtnaux.getString("img"));
+                    mountains.add(new Mountain(mtn.getString("name"), mtn.getString("location"), mtn.getInt("size"), mtnimg));
                 }
+
+
+
+
 
                 final List<String> mountainData = new ArrayList<String> ();
 
@@ -182,7 +191,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         String mountainInfo = mountains.get(position).info();
-                        launchMountainDetailsActivity(view, mountainInfo);
+                        String imgurl = mountains.get(position).image();
+                        launchMountainDetailsActivity(view, mountainInfo, imgurl);
 
 
                     }
