@@ -27,6 +27,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+//this application makes use of the library Picasso under the Apache License (Version 2.0). documentation available at https://square.github.io/picasso/
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
