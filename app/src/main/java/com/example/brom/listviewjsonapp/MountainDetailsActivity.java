@@ -15,9 +15,6 @@ public class MountainDetailsActivity extends AppCompatActivity {
 
     TextView textView;
     ImageView imageView;
-    String matterhorn = "matterhorn";
-    String montblanc = "montblanc";
-    String denali = "denali";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +30,7 @@ public class MountainDetailsActivity extends AppCompatActivity {
 
         Log.e("berra", imageurl);
 
-       // Picasso.get().load("http://i.imgur.com/DvpvklR.png").fit().into(imageView);
+
 
 
 
