@@ -56,13 +56,22 @@ public class MainActivity extends AppCompatActivity {
             new FetchData().execute();
             return true;
         }
+        if(id == R.id.action_about){
+            launchAboutActivity();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
-    public void launchMountainDetailsActivity(View view, String mountainInfo, String image) {
+    public void launchAboutActivity(){
+        Intent activityIntent = new Intent (this, About.class);
+        startActivity(activityIntent);
+
+    }
+    public void launchFrogDetailsActivity(View view, String frogInfo, String image) {
 
 
-        Intent intent = new Intent(this, MountainDetailsActivity.class);
-        intent.putExtra("MOUNTAININFO", mountainInfo);
+        Intent intent = new Intent(this, FrogDetailsActivity.class);
+        intent.putExtra("FROGINFO", frogInfo);
         intent.putExtra("IMGURL", image);
         startActivity(intent);
     }
@@ -80,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 // Construct the URL for the Internet service
-                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
+                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=c14jonfr");
 
                 // Create the request to the PHP-service, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -140,34 +149,34 @@ public class MainActivity extends AppCompatActivity {
 
             try{
 
-                JSONArray mtns= new JSONArray(o);
+                JSONArray frgs= new JSONArray(o);
 
 
                 Log.e("berra", "ok det funkar än så länge");
 
 
-                final List<Mountain> mountains = new ArrayList<Mountain>();
+                final List<Frog> frogs = new ArrayList<Frog>();
                 ImageView imageView;
                 imageView = (ImageView)findViewById(R.id.imageView);
-                for (int i = 0; i<mtns.length(); i++){
+                for (int i = 0; i<frgs.length(); i++){
                     Log.e("berra", String.valueOf(i));
-                    JSONObject mtn = new JSONObject(mtns.getString(i));
-                    JSONObject mtnaux = new JSONObject(mtn.getString("auxdata"));
-                    String mtnimg = new String(mtnaux.getString("img"));
-                    mountains.add(new Mountain(mtn.getString("name"), mtn.getString("location"), mtn.getInt("size"), mtnimg));
+                    JSONObject frg = new JSONObject(frgs.getString(i));
+                     String frgimg = new String(frg.getString("auxdata"));
+                     Log.e("berra", frgimg);
+                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frgimg));
                 }
 
 
 
 
 
-                final List<String> mountainData = new ArrayList<String> ();
+                final List<String> frogData = new ArrayList<String> ();
 
-                for (int i = 0; i < mountains.size(); i++) {
-                   mountainData.add(mountains.get(i).toString());
+                for (int i = 0; i < frogs.size(); i++) {
+                   frogData.add(frogs.get(i).toString());
 
                 }
-                ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview, R.id.my_item_textview, mountainData);
+                ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview, R.id.my_item_textview, frogData);
 
                 final ListView myListView = (ListView) findViewById(R.id.listView);
                 myListView.setAdapter(adapter);
@@ -178,9 +187,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        String mountainInfo = mountains.get(position).info();
-                        String imgurl = mountains.get(position).image();
-                        launchMountainDetailsActivity(view, mountainInfo, imgurl);
+                        String frogInfo = frogs.get(position).info();
+                        String imgurl = frogs.get(position).image();
+                        launchFrogDetailsActivity(view, frogInfo, imgurl);
 
 
                     }

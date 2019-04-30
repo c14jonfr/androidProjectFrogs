@@ -1,16 +1,16 @@
 package com.example.brom.listviewjsonapp;
 
-public class Mountain {
+public class Frog{
     private String name;
     private String location;
     private int height;
     private String imgurl;
 
-    public Mountain(String inName, String inLocation, int inHeight, String inImgUrl){
+    public Frog(String inName, String inLocation, int inHeight, String inImgUrl){
         name=inName;
         location=inLocation;
         height=inHeight;
-        imgurl = inImgUrl;
+        imgurl =inImgUrl;
 
     }
     public String toString(){
@@ -19,11 +19,11 @@ public class Mountain {
 
     public String info(){
         String str=name;
-        str+=" is located in ";
+        str+=" kommer ursprungligen från ";
         str+=location;
-        str+=" and has a height of ";
+        str+=" och blir som störst ";
         str+=height;
-        str+=" m.a.s.l.";
+        str+=" cm lång.";
 
         return str;
 

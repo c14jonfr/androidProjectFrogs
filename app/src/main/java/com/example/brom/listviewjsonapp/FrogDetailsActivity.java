@@ -8,10 +8,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.URL;
-
-public class MountainDetailsActivity extends AppCompatActivity {
+public class FrogDetailsActivity extends AppCompatActivity {
 
     TextView textView;
     ImageView imageView;
@@ -19,14 +16,15 @@ public class MountainDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mountain_details);
+        setContentView(R.layout.activity_frog_details);
 
-        String mountainInfo = getIntent().getExtras().getString("MOUNTAININFO");
+        String frogInfo = getIntent().getExtras().getString("FROGINFO");
+
         String imageurl = getIntent().getExtras().getString("IMGURL");
         imageView = (ImageView)findViewById(R.id.imageView);
         Picasso.get().load(imageurl).fit().centerCrop().into(imageView);
         textView = (TextView)findViewById(R.id.berra);
-        textView.setText(mountainInfo);
+        textView.setText(frogInfo);
 
         Log.e("berra", imageurl);
 
