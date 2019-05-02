@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -67,12 +68,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(activityIntent);
 
     }
-    public void launchFrogDetailsActivity(View view, String frogInfo, String image) {
+    public void launchFrogDetailsActivity(View view, String frogInfo, String image, String license) {
 
 
         Intent intent = new Intent(this, FrogDetailsActivity.class);
         intent.putExtra("FROGINFO", frogInfo);
         intent.putExtra("IMGURL", image);
+        intent.putExtra("license", license);
         startActivity(intent);
     }
 
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 // Construct the URL for the Internet service
-                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=c14jonfr");
+                URL url = new URL("http://wwwlab.iit.his.se/c14jonfr/VT19/androidProjectFrogs/frogJSON.json");
 
                 // Create the request to the PHP-service, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject frg = new JSONObject(frgs.getString(i));
                      String frgimg = new String(frg.getString("auxdata"));
                      Log.e("berra", frgimg);
-                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frgimg));
+                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frg.getString("auxdata"), frg.getString("category")));
                 }
 
 
@@ -189,7 +191,8 @@ public class MainActivity extends AppCompatActivity {
 
                         String frogInfo = frogs.get(position).info();
                         String imgurl = frogs.get(position).image();
-                        launchFrogDetailsActivity(view, frogInfo, imgurl);
+                        String profile = frogs.get(position).license();
+                        launchFrogDetailsActivity(view, frogInfo, imgurl, profile);
 
 
                     }

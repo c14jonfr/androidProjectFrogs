@@ -5,12 +5,14 @@ public class Frog{
     private String location;
     private int height;
     private String imgurl;
+    private String licensename;
 
-    public Frog(String inName, String inLocation, int inHeight, String inImgUrl){
+    public Frog(String inName, String inLocation, int inHeight, String inImgUrl, String license){
         name=inName;
         location=inLocation;
         height=inHeight;
         imgurl =inImgUrl;
+        licensename = license;
 
     }
     public String toString(){
@@ -31,5 +33,6 @@ public class Frog{
     public String image(){
         return imgurl;
     }
+    public String license(){return licensename;}
 
 }
