@@ -68,13 +68,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(activityIntent);
 
     }
-    public void launchFrogDetailsActivity(View view, String frogInfo, String image, String license) {
+
+    public void launchFrogDetailsActivity(View view, String frogInfo, String image, String license, String profileurl) {
 
 
         Intent intent = new Intent(this, FrogDetailsActivity.class);
         intent.putExtra("FROGINFO", frogInfo);
         intent.putExtra("IMGURL", image);
         intent.putExtra("license", license);
+        intent.putExtra("profileurl", profileurl);
+
         startActivity(intent);
     }
 
@@ -165,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject frg = new JSONObject(frgs.getString(i));
                      String frgimg = new String(frg.getString("auxdata"));
                      Log.e("berra", frgimg);
-                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frg.getString("auxdata"), frg.getString("category")));
+                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frg.getString("auxdata"), frg.getString("category"), frg.getString("cost")));
                 }
 
 
@@ -192,7 +195,10 @@ public class MainActivity extends AppCompatActivity {
                         String frogInfo = frogs.get(position).info();
                         String imgurl = frogs.get(position).image();
                         String profile = frogs.get(position).license();
-                        launchFrogDetailsActivity(view, frogInfo, imgurl, profile);
+                        String profileurl = frogs.get(position).profileurl();
+
+
+                        launchFrogDetailsActivity(view, frogInfo, imgurl, profile, profileurl);
 
 
                     }

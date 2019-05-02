@@ -11,13 +11,19 @@
         android:roundIcon="@drawable/iconround"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".About"
+        <activity android:name=".webViewActivity"
+            android:label=""
+            >
+
+        </activity>
+        <activity
+            android:name=".About"
             android:label="About">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brom.listviewjsonapp.MainActivity" />>
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.brom.listviewjsonapp.MainActivity" />
+            >
         </activity>
-
         <activity
             android:name=".FrogDetailsActivity"
             android:label="Frog Details">
@@ -25,7 +31,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.brom.listviewjsonapp.MainActivity" />
         </activity>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

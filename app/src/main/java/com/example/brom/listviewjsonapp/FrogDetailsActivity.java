@@ -1,5 +1,6 @@
 package com.example.brom.listviewjsonapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,14 +18,19 @@ public class FrogDetailsActivity extends AppCompatActivity {
     TextView photoTV;
     ImageView imageView;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frog_details);
 
+        final String profileurl = getIntent().getExtras().getString("profileurl");
         String frogInfo = getIntent().getExtras().getString("FROGINFO");
         String profile = "Photo by: ";
         profile+=getIntent().getExtras().getString("license");
+
         String imageurl = getIntent().getExtras().getString("IMGURL");
         imageView = (ImageView)findViewById(R.id.imageView);
         Picasso.get().load(imageurl).fit().centerCrop().into(imageView);
@@ -35,22 +41,26 @@ public class FrogDetailsActivity extends AppCompatActivity {
 
         Log.e("berra", imageurl);
 
+
         photoTV.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
-                
+                launchwebViewActivity(profileurl);
+
             }
         });
 
 
 
-
-
-
-
-
-
     }
+    public void launchwebViewActivity(String profileurl){
+        Intent webViewIntent = new Intent(this, webViewActivity.class);
+        webViewIntent.putExtra("profileurl", profileurl);
+        startActivity(webViewIntent);
+    }
+
 
 
 }
