@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".webViewActivity"
-            android:label=""
-            >
+            android:label="">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brom.listviewjsonapp.FrogDetailsActivity" />
 
         </activity>
         <activity
@@ -22,11 +24,12 @@
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.brom.listviewjsonapp.MainActivity" />
-            >
         </activity>
         <activity
             android:name=".FrogDetailsActivity"
-            android:label="Frog Details">
+            android:label="Frog Details"
+            android:launchMode="singleTop">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.brom.listviewjsonapp.MainActivity" />
