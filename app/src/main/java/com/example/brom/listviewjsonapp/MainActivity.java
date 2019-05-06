@@ -30,7 +30,7 @@ import java.util.List;
 //this application makes use of the library Picasso under the Apache License (Version 2.0). documentation available at https://square.github.io/picasso/
 
 public class MainActivity extends AppCompatActivity {
-
+    public ArrayList<Frog> frogData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_refresh){
+            frogData.clear();
             new FetchData().execute();
             return true;
         }
