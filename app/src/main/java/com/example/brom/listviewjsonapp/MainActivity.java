@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 // Construct the URL for the Internet service
-                URL url = new URL("http://wwwlab.iit.his.se/c14jonfr/VT19/androidProjectFrogs/frogJSON.json");
+                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=c14jonfr");
 
                 // Create the request to the PHP-service, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -166,10 +166,11 @@ public class MainActivity extends AppCompatActivity {
                 imageView = (ImageView)findViewById(R.id.imageView);
                 for (int i = 0; i<frgs.length(); i++){
                     Log.e("berra", String.valueOf(i));
+
                     JSONObject frg = new JSONObject(frgs.getString(i));
-                     String frgimg = new String(frg.getString("auxdata"));
-                     Log.e("berra", frgimg);
-                    frogs.add(new Frog(frg.getString("name"), frg.getString("location"), frg.getInt("size"), frg.getString("auxdata"), frg.getString("category"), frg.getString("cost")));
+                    JSONObject frgAux = new JSONObject((frg.getString("auxdata")));
+                     
+                    frogs.add(new Frog(frgAux.getString("name"), frgAux.getString("location"), frgAux.getInt("size"), frgAux.getString("auxdata"), frgAux.getString("category"), frgAux.getString("cost")));
                 }
 
 
