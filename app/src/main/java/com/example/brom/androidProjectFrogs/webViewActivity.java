@@ -1,8 +1,7 @@
-package com.example.brom.listviewjsonapp;
+package com.example.brom.androidProjectFrogs;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 
 public class webViewActivity extends AppCompatActivity {

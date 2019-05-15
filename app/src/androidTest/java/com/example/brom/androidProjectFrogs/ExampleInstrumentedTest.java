@@ -1,4 +1,4 @@
-package com.example.brom.listviewjsonapp;
+package com.example.brom.androidProjectFrogs;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

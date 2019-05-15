@@ -1,4 +1,4 @@
-package com.example.brom.listviewjsonapp;
+package com.example.brom.androidProjectFrogs;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -30,7 +30,7 @@ import java.util.List;
 //this application makes use of the library Picasso under the Apache License (Version 2.0). documentation available at https://square.github.io/picasso/
 
 public class MainActivity extends AppCompatActivity {
-    public ArrayList<Frog> frogData;
+    final List<String> frogData = new ArrayList<String> ();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 final List<Frog> frogs = new ArrayList<Frog>();
+
                 ImageView imageView;
                 imageView = (ImageView)findViewById(R.id.imageView);
                 for (int i = 0; i<frgs.length(); i++){
@@ -177,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                final List<String> frogData = new ArrayList<String> ();
+
 
                 for (int i = 0; i < frogs.size(); i++) {
                    frogData.add(frogs.get(i).toString());

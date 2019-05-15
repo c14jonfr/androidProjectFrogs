@@ -1,6 +1,4 @@
-package com.example.brom.listviewjsonapp;
-
-import android.content.Intent;
+package com.example.brom.androidProjectFrogs;
 
 public class Frog{
     private String name;
@@ -26,7 +24,7 @@ public class Frog{
 
     public String info(){
         String str=name;
-        str+=" kommer ursprungligen från ";
+       str+=" kommer ursprungligen från ";
         str+=location;
         str+=" och blir som störst ";
         str+=height;

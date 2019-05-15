@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.brom.listviewjsonapp">
+    package="com.example.brom.androidProjectFrogs">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,30 +11,30 @@
         android:roundIcon="@drawable/iconround"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".webViewActivity"
+        <activity android:name="com.example.brom.androidProjectFrogs.webViewActivity"
             android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brom.listviewjsonapp.FrogDetailsActivity" />
+                android:value="com.example.brom.androidProjectFrogs.FrogDetailsActivity" />
 
         </activity>
         <activity
-            android:name=".About"
+            android:name="com.example.brom.androidProjectFrogs.About"
             android:label="About">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.brom.listviewjsonapp.MainActivity" />
+            android:value="com.example.brom.androidProjectFrogs.MainActivity" />
         </activity>
         <activity
-            android:name=".FrogDetailsActivity"
+            android:name="com.example.brom.androidProjectFrogs.FrogDetailsActivity"
             android:label="Frog Details"
             android:launchMode="singleTop">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brom.listviewjsonapp.MainActivity" />
+                android:value="com.example.brom.androidProjectFrogs.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.brom.androidProjectFrogs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

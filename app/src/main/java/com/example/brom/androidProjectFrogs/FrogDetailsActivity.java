@@ -1,4 +1,4 @@
-package com.example.brom.listviewjsonapp;
+package com.example.brom.androidProjectFrogs;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 public class FrogDetailsActivity extends AppCompatActivity {
 
