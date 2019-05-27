@@ -24,11 +24,11 @@ public class Frog{
 
     public String info(){
         String str=name;
-       str+=" kommer ursprungligen från ";
+       str+=" can be found in ";
         str+=location;
-        str+=" och blir som störst ";
+        str+=" and will grow to a size of ";
         str+=height;
-        str+=" cm lång.";
+        str+=" cm.";
 
         return str;
 

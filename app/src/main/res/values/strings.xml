@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Frogs Are People Too</string>
+    <string name="app_name">Frogs For Kids</string>
+    <string name="about">This is an app created with the purpose of introducing kids around the age of 10 to the world of frogs. The language is simple and consistent to make it easier for kids to follow along. Currently the app only contains information about Poison Dart Frogs but if the app was to be developed further more frogs or even other species from the animal kingdom could be added.</string>
 </resources>
